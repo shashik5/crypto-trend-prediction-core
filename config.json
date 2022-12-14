@@ -1,0 +1,76 @@
+{
+    "basePath": "",
+    "modelDirectory": "trained_model",
+    "mongoDB": {
+        "conncetionString": "MONGO_CONNECTION_STRING",
+        "database": "MONGO_DATABASE_NAME"
+    },
+    "binance": {
+        "urls": {
+            "fapi": "BINANCE_FAPI"
+        },
+        "apiKey": "BINANCE_API_KEY"
+    },
+    "trainingConfig": [
+        {
+            "study": "candleTypePrediction",
+            "modelName": "candleTypePrediction_BTCUSDT_1H_CNN",
+            "symbol": "BTCUSDT",
+            "trainingTimeframe": "1h",
+            "epochs": 2000,
+            "batchSize": 500,
+            "predictionTimeframes": [
+                "1h"
+            ],
+            "prevCandleDependants": 7,
+            "movingAverage": {
+                "property": "open",
+                "noOfSamples": [
+                    7,
+                    15,
+                    29
+                ]
+            }
+        },
+        {
+            "study": "candleTypePrediction",
+            "modelName": "candleTypePrediction_BTCUSDT_4H_CNN",
+            "symbol": "BTCUSDT",
+            "trainingTimeframe": "4h",
+            "epochs": 1000,
+            "batchSize": 100,
+            "predictionTimeframes": [
+                "4h"
+            ],
+            "prevCandleDependants": 7,
+            "movingAverage": {
+                "property": "open",
+                "noOfSamples": [
+                    7,
+                    15,
+                    29
+                ]
+            }
+        },
+        {
+            "study": "candleTypePrediction",
+            "modelName": "candleTypePrediction_BTCUSDT_1D_CNN",
+            "symbol": "BTCUSDT",
+            "trainingTimeframe": "1d",
+            "epochs": 700,
+            "batchSize": 10,
+            "predictionTimeframes": [
+                "1d"
+            ],
+            "prevCandleDependants": 7,
+            "movingAverage": {
+                "property": "open",
+                "noOfSamples": [
+                    7,
+                    15,
+                    29
+                ]
+            }
+        }
+    ]
+}
